@@ -45,12 +45,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TextTop() {
-    Row (
-        modifier = Modifier.height(425.dp)
-    )
+    Row ()
     {
         Column(
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .weight(1f)
                 .background(Color(0xFFEADDFF))
                 .padding(16.dp)
 
@@ -66,13 +65,15 @@ fun TextTop() {
                     text = "Text composable",
                     fontWeight = FontWeight.Bold,
                     textAlign= TextAlign.Center,
+                    //Hay que poner esto porque si no no ocupa todo el ancho
+                    //y entonces no me lo centra como yo quiero
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 16.dp, bottom = 16.dp)
 
                 )
 
-                
+
                 Text(
                     text = "Displays text and follows the recommended Material Design guidelines.",
                     textAlign = TextAlign.Justify
@@ -81,12 +82,13 @@ fun TextTop() {
             }
         }
         Column(
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .weight(1f)
                 .background(Color(0xFFD0BCFF))
                 .padding(16.dp)
         ) {
             Column(
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.Center, //Centra el texto verticalmente
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(425.dp)
@@ -114,9 +116,8 @@ fun TextTop() {
 
 @Composable
 fun TextBottom() {
-    Row(
-        modifier=Modifier.height(425.dp)
-    ) {
+    Row()
+    {
         Column(
             modifier = Modifier.weight(1f)
                 .background(Color(0xFFB69DF8))
@@ -177,11 +178,8 @@ fun TextBottom() {
 
 @Composable
 fun TextsInCorners(){
-    Column (
-        modifier = Modifier.fillMaxSize()
-            .fillMaxWidth()
-            .fillMaxHeight()
-    ){
+    Column ()
+    {
         TextTop()
         TextBottom()
     }
